@@ -15,19 +15,33 @@ public class PlayerMovement : MonoBehaviour
     [Header("Death")]
     public GameObject deathScreen;
     public GameObject retryButton, menuButton;
+    public bool die;
+
+    [Header("HP")]
+    public int hp = 100;
+    public Slider healthBar;
+
+    [Header("Animation")]
+    public Animator anim;
+
+
 
     private void Start()
     {
-        //deathScreen.SetActive(false);
+        Cursor.visible = false; //MAKE SURE TO SET THIS TO ACTIVE WHEN INTERACTING WITH MENUS
         retryButton.SetActive(false);
         menuButton.SetActive(false);
 
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         MovePlayer();
         Jump();
+
+        //update health bar
+        healthBar.value = hp;
     }
 
     void MovePlayer()
@@ -62,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(other.tag == "Death")
         {
+            Cursor.visible = true;
             //death splash screen set true
             //deathScreen.SetActive(true);
             StartCoroutine(FadeBlackOutSquare());
@@ -71,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             menuButton.SetActive(true);
             //death sound plays
 
-            //disables summoning
+            
         }
 
     }
