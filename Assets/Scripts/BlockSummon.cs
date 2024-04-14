@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BlockSummon : MonoBehaviour
 {
-    public GameObject blockPrefab;                // Assign the block prefab in the inspector
-    public GameObject blockOutlinePrefab;         // Assign the outline prefab in the inspector
-    public float despawnTime = 5.0f;              // Time in seconds after which the block will despawn
+    public GameObject blockPrefab;                
+    public GameObject blockOutlinePrefab;         
+    public float despawnTime = 5.0f;              
 
-    private GameObject currentOutline;            // This will hold the current outline instance
-    private Vector3 mousePosition;                // To store the recalculated mouse position in world space
-    private float rotationAngle = 0f;             // Current rotation angle of the block
+    private GameObject currentOutline;            
+    private Vector3 mousePosition;                
+    private float rotationAngle = 0f;             
 
     void Update()
     {
