@@ -5868,13 +5868,15 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   rb: {fileID: 1957066556}
+  canMove: 0
   deathScreen: {fileID: 1964419044}
   retryButton: {fileID: 716063}
   menuButton: {fileID: 1639890376}
   die: 0
   hp: 100
   healthBar: {fileID: 2045703863}
-  anim: {fileID: 0}
+  anim: {fileID: 1957066562}
+  facingRight: 0
 --- !u!212 &1957066559
 SpriteRenderer:
   m_ObjectHideFlags: 0
