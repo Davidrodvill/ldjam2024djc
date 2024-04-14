@@ -50,6 +50,7 @@ public class DiddyKongDialogue : MonoBehaviour
             StopAllCoroutines();
             spiritSprite.SetActive(true);
             textBox.SetActive(true);
+            //text here
             StartCoroutine(TypeText("AAAAAAAAAAHHHHHHHHHH FUCK THIS GAME JAM")); //PLEASE DO NOT LEAVE THIS IN THE GAME
             StartCoroutine(SpeechTime());
 
