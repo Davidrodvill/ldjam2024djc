@@ -4235,6 +4235,7 @@ GameObject:
   - component: {fileID: 1820764236}
   - component: {fileID: 1820764235}
   - component: {fileID: 1820764234}
+  - component: {fileID: 1820764237}
   m_Layer: 0
   m_Name: UnderworldSpirit (64 X 64)_0
   m_TagString: Untagged
@@ -4324,6 +4325,27 @@ Transform:
   m_Father: {fileID: 741691007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1820764237
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820764233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d18d3302fbb4f740ad591fa197844c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1857437761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e697b4c4e3bbb47bcd9c6c61020797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  moveSpeed: 5
   jumpForce: 7
   rb: {fileID: 1957066556}
 --- !u!212 &1957066559
@@ -4727,13 +4749,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957066555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0d0687f3e6443b4aa6c67cba55641e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 0}
-  blockOutlinePrefab: {fileID: 0}
+  blockPrefab: {fileID: 5649674687309804008, guid: fd2b6b7b62035014aa63b89434e00411, type: 3}
+  blockOutlinePrefab: {fileID: 6781594115435898029, guid: e0ce449f58029244da2f2b7262a017d2, type: 3}
   spawnPoint: {fileID: 1522832919}
 --- !u!1 &1962668410
 GameObject:
