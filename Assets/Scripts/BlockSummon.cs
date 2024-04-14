@@ -50,21 +50,30 @@ public class BlockSummon : MonoBehaviour
 
     private void ConfirmPlacement()
     {
-        Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
-        
+        // Instantiate the block at the outline position and rotation
+        GameObject blockInstance = Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
 
         // Start the despawn coroutine for the placed block
-        StartCoroutine(DespawnAfterTime(currentOutline, despawnTime));
+        StartCoroutine(DespawnAfterTime(blockInstance, despawnTime));
     }
 
     private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(spawnedObject); // Destroy the object after the delay
+        
+        if (spawnedObject != null)
+        {
+            Destroy(spawnedObject); // Destroy the object after the delay
+        }
     }
 
     private void UpdateOutlinePositionAndRotation()
     {
+        if (currentOutline == null)
+        {
+            return; // Exit if there's no outline to update
+        }
+
         // Update the outline position to follow the mouse
         mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
         currentOutline.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
