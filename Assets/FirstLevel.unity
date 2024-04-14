@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 94057980}
   - component: {fileID: 94057979}
   m_Layer: 0
-  m_Name: death
+  m_Name: DeathLiquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,18 +265,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.002061963, y: -0.47410366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.31, y: 1.31}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.3010893, y: 0.37640435}
   m_EdgeRadius: 0
 --- !u!212 &94057980
 SpriteRenderer:
@@ -319,8 +319,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3226237, g: 0.5471698, b: 0.52308005, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 78eab1d2840c2e6468380ae62faf69b1, type: 3}
+  m_Color: {r: 0.13950695, g: 0.58178353, b: 0.8962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -338,8 +338,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94057978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.8, y: -34, z: 0}
-  m_LocalScale: {x: 192.5, y: 21.6, z: 1}
+  m_LocalPosition: {x: 67.9158, y: 9.2976, z: 0}
+  m_LocalScale: {x: 181.643, y: 87.70248, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4674,6 +4674,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 7
   rb: {fileID: 1957066556}
+  deathScreen: {fileID: 0}
 --- !u!212 &1957066559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4754,8 +4755,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d0687f3e6443b4aa6c67cba55641e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 5649674687309804008, guid: fd2b6b7b62035014aa63b89434e00411, type: 3}
-  blockOutlinePrefab: {fileID: 6781594115435898029, guid: e0ce449f58029244da2f2b7262a017d2, type: 3}
+  blockPrefabs:
+  - {fileID: 5649674687309804008, guid: fd2b6b7b62035014aa63b89434e00411, type: 3}
+  - {fileID: 34220349024932120, guid: ee3731fb4cabd2247af91d8bd8d1e80b, type: 3}
+  - {fileID: 8115109554852949322, guid: 903b02d6416f82c4bbed00349e112617, type: 3}
+  blockOutlinePrefabs:
+  - {fileID: 6781594115435898029, guid: e0ce449f58029244da2f2b7262a017d2, type: 3}
+  - {fileID: 3134557515319013146, guid: 64d4b02b69a9e454aa670b38a4f619e8, type: 3}
+  - {fileID: 1456983087665490401, guid: 0a6bddce7a064d745ad489e6b397daf0, type: 3}
   despawnTime: 5
 --- !u!1 &1962668410
 GameObject:

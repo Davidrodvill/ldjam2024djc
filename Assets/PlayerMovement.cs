@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;       
     public float jumpForce = 5f;       
     public Rigidbody2D rb;              
-    private bool isGrounded = true;     
+    private bool isGrounded = true;
+
+    [Header("Death")]
+    public GameObject deathScreen;
+    
 
     void Update()
     {
@@ -39,6 +44,20 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+
+        if(collision.gameObject.CompareTag("Death"))
+        {
+            //death splash screen set true
+            deathScreen.SetActive(true);
+
+            //retry and exit buttons set to true
+
+            //death sound plays
+
+            //disables summoning
+
+
         }
     }
 

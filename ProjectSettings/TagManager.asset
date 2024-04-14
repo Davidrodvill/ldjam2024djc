@@ -7,6 +7,7 @@ TagManager:
   - WhiteDoor
   - DialogueCollider1
   - Ground
+  - Death
   layers:
   - Default
   - TransparentFX
