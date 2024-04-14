@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aea2073941416444da065671b709c9b6
+guid: 10c1f14714364614ab8aafc49c03e864
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -78,18 +78,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blocks (32 X 32)_0
+      name: playerattack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 131
+        width: 131
+        height: 131
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,41 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b82c22120b219143bbc4b377bb6ac18
-      internalID: -881282717
+      spriteID: e3ea05b622c1b5247b7eb41354dd3776
+      internalID: 1480921954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blocks (32 X 32)_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70fa1416d978f384c8c64f6eb8d1885b
-      internalID: -1802854255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Blocks (32 X 32)_2
+      name: playerattack_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 131
+        height: 131
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81a1a1f7ddf2b8945ae16e47e5866bcd
-      internalID: 1642341866
+      spriteID: 1d9d083d0da09ea448941d82ca265868
+      internalID: 399200421
       vertices: []
       indices: 
       edges: []
@@ -190,9 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Blocks (32 X 32)_0: -881282717
-      Blocks (32 X 32)_1: -1802854255
-      Blocks (32 X 32)_2: 1642341866
+      playerattack_0: 1480921954
+      playerattack_1: 399200421
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
