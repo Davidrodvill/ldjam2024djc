@@ -28,10 +28,7 @@ public class BlockSummon : MonoBehaviour
             HandleSummonPress();
         }
 
-        if (Input.GetMouseButtonDown(1))          // Right mouse button clicked
-        {
-            CancelPlacement();
-        }
+      
     }
 
     private void HandleSummonPress()
@@ -41,11 +38,6 @@ public class BlockSummon : MonoBehaviour
         CreateOutline();
     }
 
-    private void CancelPlacement()
-    {
-        // There's no need to destroy the outline anymore, as it's always visible
-        // Any other cancel-related logic can go here if needed
-    }
 
     private void CreateOutline()
     {
@@ -59,7 +51,7 @@ public class BlockSummon : MonoBehaviour
     private void ConfirmPlacement()
     {
         Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
-        // No need to destroy the outline as it will be moved to the next position
+        
 
         // Start the despawn coroutine for the placed block
         StartCoroutine(DespawnAfterTime(currentOutline, despawnTime));
