@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 58122592}
   m_Layer: 0
   m_Name: Square (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 123238213}
   m_Layer: 0
   m_Name: Square (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 175846780}
   m_Layer: 0
   m_Name: floor_1 (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1509,7 +1509,7 @@ GameObject:
   - component: {fileID: 517727085}
   m_Layer: 0
   m_Name: floor_1 (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 551958171}
   m_Layer: 0
   m_Name: floor_1 (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1731,7 +1731,7 @@ GameObject:
   - component: {fileID: 630724773}
   m_Layer: 0
   m_Name: floor_1 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 736946063}
   m_Layer: 0
   m_Name: floor_1 (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2652,7 +2652,7 @@ GameObject:
   - component: {fileID: 981953465}
   m_Layer: 0
   m_Name: floor_1 (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 1096624855}
   m_Layer: 0
   m_Name: Square (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3318,7 +3318,7 @@ GameObject:
   - component: {fileID: 1242050272}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3429,7 +3429,7 @@ GameObject:
   - component: {fileID: 1283303786}
   m_Layer: 0
   m_Name: floor_1 (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3540,7 +3540,7 @@ GameObject:
   - component: {fileID: 1421311163}
   m_Layer: 0
   m_Name: floor_1 (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3651,7 +3651,7 @@ GameObject:
   - component: {fileID: 1458896669}
   m_Layer: 0
   m_Name: floor_1 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3904,7 +3904,7 @@ GameObject:
   - component: {fileID: 1538309420}
   m_Layer: 0
   m_Name: Square (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4015,7 +4015,7 @@ GameObject:
   - component: {fileID: 1698191778}
   m_Layer: 0
   m_Name: floor_1 (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4126,7 +4126,7 @@ GameObject:
   - component: {fileID: 1813338027}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4359,7 +4359,7 @@ GameObject:
   - component: {fileID: 1857437763}
   m_Layer: 0
   m_Name: Square (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4470,7 +4470,7 @@ GameObject:
   - component: {fileID: 1877818544}
   m_Layer: 0
   m_Name: floor_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4756,7 +4756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 5649674687309804008, guid: fd2b6b7b62035014aa63b89434e00411, type: 3}
   blockOutlinePrefab: {fileID: 6781594115435898029, guid: e0ce449f58029244da2f2b7262a017d2, type: 3}
-  spawnPoint: {fileID: 1522832919}
+  despawnTime: 5
 --- !u!1 &1962668410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 1962668411}
   m_Layer: 0
   m_Name: floor_1 (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 1981496306}
   m_Layer: 0
   m_Name: floor_1 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 2013975779}
   m_Layer: 0
   m_Name: floor_1 (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5103,7 +5103,7 @@ GameObject:
   - component: {fileID: 2064004920}
   m_Layer: 0
   m_Name: floor_1 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5250,7 +5250,7 @@ GameObject:
   - component: {fileID: 2112814181}
   m_Layer: 0
   m_Name: Square (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
