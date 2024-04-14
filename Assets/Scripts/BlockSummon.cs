@@ -4,67 +4,91 @@ using UnityEngine;
 
 public class BlockSummon : MonoBehaviour
 {
-    public GameObject blockPrefab;
-    public GameObject blockOutlinePrefab;
+    public List<GameObject> blockPrefabs;          // List to hold multiple block prefabs
+    public List<GameObject> blockOutlinePrefabs;   // List to hold corresponding outline prefabs
     public float despawnTime = 5.0f;
 
     private GameObject currentOutline;
     private Vector3 mousePosition;
     private float rotationAngle = 0f;
+    private int currentPrefabIndex = 0;  // Index to keep track of the currently selected block prefab
 
     void Start()
     {
-        // Create the outline as soon as the game starts
         CreateOutline();
         Cursor.visible = false;
     }
 
     void Update()
     {
-        // Always update the outline's position and rotation
         UpdateOutlinePositionAndRotation();
 
-        if (Input.GetMouseButtonDown(0))          // Left mouse button clicked
+        if (Input.GetMouseButtonDown(1))  // Right mouse button clicked
+        {
+            CycleBlockPrefab();
+        }
+
+        if (Input.GetMouseButtonDown(0))  // Left mouse button clicked
         {
             HandleSummonPress();
         }
+    }
 
-      
+    private void CycleBlockPrefab()
+    {
+        currentPrefabIndex = (currentPrefabIndex + 1) % blockPrefabs.Count;  // Cycle through the prefabs
+        if (currentOutline != null)
+        {
+            Destroy(currentOutline);  // Destroy the current outline
+        }
+        CreateOutline();  // Create a new outline with the next block prefab
     }
 
     private void HandleSummonPress()
     {
         ConfirmPlacement();
-        // Recreate the outline immediately after placing a block
-        CreateOutline();
     }
-
 
     private void CreateOutline()
     {
-        if (currentOutline == null)  // Only create the outline if it doesn't already exist
+        if (currentOutline != null) return;  // Return if there's already an outline
+
+        // Make sure we have the corresponding outline for the current block prefab
+        if (blockOutlinePrefabs.Count > currentPrefabIndex)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-            currentOutline = Instantiate(blockOutlinePrefab, mousePosition, Quaternion.Euler(0, 0, rotationAngle));
+            // Use the corresponding outline prefab for the current block prefab
+            GameObject outlinePrefab = blockOutlinePrefabs[currentPrefabIndex];
+            currentOutline = Instantiate(outlinePrefab, mousePosition, Quaternion.Euler(0, 0, rotationAngle));
+        }
+        else
+        {
+            Debug.LogError("The list of outline prefabs does not match the list of block prefabs.");
         }
     }
 
     private void ConfirmPlacement()
     {
-        // Instantiate the block at the outline position and rotation
-        GameObject blockInstance = Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
-
-        // Start the despawn coroutine for the placed block
-        StartCoroutine(DespawnAfterTime(blockInstance, despawnTime));
+        if (blockPrefabs.Count > currentPrefabIndex)
+        {
+            // Instantiate the block at the outline position and rotation
+            GameObject blockInstance = Instantiate(blockPrefabs[currentPrefabIndex], currentOutline.transform.position, currentOutline.transform.rotation);
+            // Start the despawn coroutine for the placed block
+            StartCoroutine(DespawnAfterTime(blockInstance, despawnTime));
+        }
+        else
+        {
+            Debug.LogError("The list of block prefabs does not match the list of outline prefabs.");
+        }
     }
 
     private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
     {
         yield return new WaitForSeconds(delay);
-        
+
         if (spawnedObject != null)
         {
-            Destroy(spawnedObject); // Destroy the object after the delay
+            Destroy(spawnedObject);
         }
     }
 
@@ -72,7 +96,8 @@ public class BlockSummon : MonoBehaviour
     {
         if (currentOutline == null)
         {
-            return; // Exit if there's no outline to update
+            CreateOutline();  // Ensure there is always an outline
+            return;
         }
 
         // Update the outline position to follow the mouse
@@ -82,11 +107,11 @@ public class BlockSummon : MonoBehaviour
         // Rotate outline with Q and E keys
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            rotationAngle -= 90; // Rotate left by 90 degrees
+            rotationAngle -= 90;
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            rotationAngle += 90; // Rotate right by 90 degrees
+            rotationAngle += 90;
         }
 
         // Apply rotation
