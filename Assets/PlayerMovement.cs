@@ -14,7 +14,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Death")]
     public GameObject deathScreen;
-    
+    public GameObject retryButton, menuButton;
+
+    private void Start()
+    {
+        //deathScreen.SetActive(false);
+        retryButton.SetActive(false);
+        menuButton.SetActive(false);
+
+    }
 
     void Update()
     {
@@ -46,19 +54,26 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
         }
 
-        if(collision.gameObject.CompareTag("Death"))
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if(other.tag == "Death")
         {
             //death splash screen set true
-            deathScreen.SetActive(true);
+            //deathScreen.SetActive(true);
+            StartCoroutine(FadeBlackOutSquare());
 
             //retry and exit buttons set to true
-
+            retryButton.SetActive(true);
+            menuButton.SetActive(true);
             //death sound plays
 
             //disables summoning
-
-
         }
+
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -69,4 +84,48 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
+
+
+    //blackout
+    public IEnumerator FadeBlackOutSquare(bool fadeToBlack = true, int fadeSpeed = 2)
+    {
+
+        Color objectColor = deathScreen.GetComponent<Image>().color;
+        float fadeAmount;
+
+        if (fadeToBlack)
+        {
+            while (deathScreen.GetComponent<Image>().color.a < 1)
+            {
+
+                fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                deathScreen.GetComponent<Image>().color = objectColor;
+                yield return null;
+            }
+
+        }
+        else
+        {
+
+            while (deathScreen.GetComponent<Image>().color.a > 0)
+            {
+                fadeAmount = objectColor.a - (fadeSpeed * Time.deltaTime);
+
+                objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+                deathScreen.GetComponent<Image>().color = objectColor;
+                yield return null;
+
+            }
+
+        }
+    }
+
+
+
+
+
 }

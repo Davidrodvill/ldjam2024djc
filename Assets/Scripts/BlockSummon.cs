@@ -97,7 +97,7 @@ public class BlockSummon : MonoBehaviour
                 // Get the current color of the material
                 Color initialColor = renderer.material.color;
                 float fadeDuration = 2.0f; // Duration of the fade effect in seconds
-                float fadeSpeed = 1.0f / fadeDuration;
+                float fadeSpeed = 5.0f / fadeDuration;
 
                 // Gradually fade out the object
                 for (float t = 0.0f; t < 1.0f; t += Time.deltaTime * fadeSpeed)
