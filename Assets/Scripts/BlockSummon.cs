@@ -84,11 +84,35 @@ public class BlockSummon : MonoBehaviour
 
     private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
     {
+        // Wait for the specified delay
         yield return new WaitForSeconds(delay);
 
+        // Ensure the object still exists
         if (spawnedObject != null)
         {
-            Destroy(spawnedObject);
+            // Get the renderer component of the object
+            Renderer renderer = spawnedObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                // Get the current color of the material
+                Color initialColor = renderer.material.color;
+                float fadeDuration = 2.0f; // Duration of the fade effect in seconds
+                float fadeSpeed = 1.0f / fadeDuration;
+
+                // Gradually fade out the object
+                for (float t = 0.0f; t < 1.0f; t += Time.deltaTime * fadeSpeed)
+                {
+                    if (spawnedObject == null) yield break; // Exit if the object was destroyed elsewhere
+
+                    Color newColor = initialColor;
+                    newColor.a = Mathf.Lerp(initialColor.a, 0, t); // Lerp the alpha value to 0
+                    renderer.material.color = newColor;
+                    yield return null; // Wait until the next frame
+                }
+
+                // Once fully transparent, destroy the object
+                Destroy(spawnedObject);
+            }
         }
     }
 
