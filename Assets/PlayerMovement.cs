@@ -6,41 +6,36 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 10f;
-    
-    public Rigidbody2D rb;
+    public float speed = 5f;          
+    public float jumpForce = 7f;      
+    public Rigidbody2D rb;            
+    private bool isGrounded = true;   
 
-   
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //change to a and d movement with a jump
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // right and left movement
+        float moveHorizontal = Input.GetAxis("Horizontal") * speed;
+        Vector2 movement = new Vector2(moveHorizontal, rb.velocity.y);
+        rb.velocity = movement;
 
-        if (Input.GetKey(KeyCode.A))
+        // jumping with w key
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            isGrounded = false;  
         }
+    }
 
-        if (Input.GetKey(KeyCode.D))
+    // checking if player is on ground
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.contacts.Length > 0)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            ContactPoint2D contact = collision.contacts[0];
+            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
+            {
+                isGrounded = true;
+            }
         }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
-
     }
 }
