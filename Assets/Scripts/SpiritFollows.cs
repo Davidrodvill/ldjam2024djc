@@ -7,7 +7,7 @@ public class SpiritFollows : MonoBehaviour
     public Transform player;          
     public float hoverHeight = 1.5f;  
     public float followSpeed = 2f;    
-    public float rotationSpeed = 5f;  
+    //public float rotationSpeed = 5f;  
 
     void Update()
     {
@@ -25,9 +25,11 @@ public class SpiritFollows : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
 
         //rotation
+        /*
         Vector3 direction = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+        */
     }
 }
 
