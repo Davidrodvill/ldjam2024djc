@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //change to a and d movement with a jump
     }
 
     // Update is called once per frame
