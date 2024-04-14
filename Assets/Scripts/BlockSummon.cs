@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class BlockSummon : MonoBehaviour
 {
-    public GameObject blockPrefab;                
-    public GameObject blockOutlinePrefab;         
-    public float despawnTime = 5.0f;              
+    public GameObject blockPrefab;
+    public GameObject blockOutlinePrefab;
+    public float despawnTime = 5.0f;
 
-    private GameObject currentOutline;            
-    private Vector3 mousePosition;                
-    private float rotationAngle = 0f;             
+    private GameObject currentOutline;
+    private Vector3 mousePosition;
+    private float rotationAngle = 0f;
+
+    void Start()
+    {
+        // Create the outline as soon as the game starts
+        CreateOutline();
+    }
 
     void Update()
     {
+        // Always update the outline's position and rotation
+        UpdateOutlinePositionAndRotation();
+
         if (Input.GetMouseButtonDown(0))          // Left mouse button clicked
         {
             HandleSummonPress();
@@ -23,46 +32,37 @@ public class BlockSummon : MonoBehaviour
         {
             CancelPlacement();
         }
-
-        if (currentOutline != null)
-        {
-            UpdateOutlinePositionAndRotation();
-        }
     }
 
     private void HandleSummonPress()
     {
-        if (currentOutline == null)
-        {
-            CreateOutline();
-        }
-        else
-        {
-            ConfirmPlacement();
-        }
+        ConfirmPlacement();
+        // Recreate the outline immediately after placing a block
+        CreateOutline();
     }
 
     private void CancelPlacement()
     {
-        if (currentOutline != null)
-        {
-            Destroy(currentOutline);
-            currentOutline = null;
-        }
+        // There's no need to destroy the outline anymore, as it's always visible
+        // Any other cancel-related logic can go here if needed
     }
 
     private void CreateOutline()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
-        currentOutline = Instantiate(blockOutlinePrefab, mousePosition, Quaternion.Euler(0, 0, rotationAngle));
+        if (currentOutline == null)  // Only create the outline if it doesn't already exist
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
+            currentOutline = Instantiate(blockOutlinePrefab, mousePosition, Quaternion.Euler(0, 0, rotationAngle));
+        }
     }
 
     private void ConfirmPlacement()
     {
-        GameObject blockInstance = Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
-        Destroy(currentOutline); // Remove the outline after placement
-        currentOutline = null;
-        StartCoroutine(DespawnAfterTime(blockInstance, despawnTime)); // Start the despawn coroutine
+        Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
+        // No need to destroy the outline as it will be moved to the next position
+
+        // Start the despawn coroutine for the placed block
+        StartCoroutine(DespawnAfterTime(currentOutline, despawnTime));
     }
 
     private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
