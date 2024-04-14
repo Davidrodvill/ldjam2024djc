@@ -6,36 +6,45 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 5f;          
-    public float jumpForce = 7f;      
-    public Rigidbody2D rb;            
-    private bool isGrounded = true;   
+    public float moveSpeed = 5f;       
+    public float jumpForce = 5f;       
+    public Rigidbody2D rb;              
+    private bool isGrounded = true;     
 
     void Update()
     {
-        // right and left movement
-        float moveHorizontal = Input.GetAxis("Horizontal") * speed;
-        Vector2 movement = new Vector2(moveHorizontal, rb.velocity.y);
-        rb.velocity = movement;
+        MovePlayer();
+        Jump();
+    }
 
-        // jumping with w key
+    void MovePlayer()
+    {
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); //right and left movement
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y); // Set the horizontal velocity
+    }
+
+    void Jump()
+    {
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
-            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            isGrounded = false;  
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); //jump
+            isGrounded = false; 
         }
     }
 
-    // checking if player is on ground
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.contacts.Length > 0)
+    void OnCollisionEnter2D(Collision2D collision)
+    {//if touching ground, then true
+        if (collision.contacts[0].normal.y > 0.5)
         {
-            ContactPoint2D contact = collision.contacts[0];
-            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
-            {
-                isGrounded = true;
-            }
+            isGrounded = true;  
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {//if not touching ground, then not true
+        if (collision.collider != null)
+        {
+            isGrounded = false;  
         }
     }
 }
