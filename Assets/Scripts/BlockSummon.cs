@@ -16,6 +16,7 @@ public class BlockSummon : MonoBehaviour
     {
         // Create the outline as soon as the game starts
         CreateOutline();
+        Cursor.visible = false;
     }
 
     void Update()
