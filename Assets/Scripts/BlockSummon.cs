@@ -19,9 +19,13 @@ public class BlockSummon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             HandleSummonPress();
+        }
+        else if (Input.GetKeyDown(KeyCode.F)) // Press 'F' to cancel
+        {
+            HandleCancelPress();
         }
     }
     /*
@@ -53,11 +57,19 @@ public class BlockSummon : MonoBehaviour
         }
     }
 
+    private void HandleCancelPress()
+    {
+        if (isPreviewActive)
+        {
+            CancelPlacement();
+        }
+    }
+
     private void ShowPreview()
     {
         if (currentOutline != null)
         {
-            Destroy(currentOutline); // Ensure only one preview is active at a time
+            Destroy(currentOutline); 
         }
 
         currentOutline = Instantiate(blockOutlinePrefab, spawnPoint.position, Quaternion.identity);
@@ -72,6 +84,15 @@ public class BlockSummon : MonoBehaviour
         }
 
         Instantiate(blockPrefab, spawnPoint.position, Quaternion.identity); // Summon the actual block
+        isPreviewActive = false;
+    }
+
+    private void CancelPlacement()
+    {
+        if (currentOutline != null)
+        {
+            Destroy(currentOutline); // Destroy the outline to cancel the placement
+        }
         isPreviewActive = false;
     }
 }
