@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class BlockSummon : MonoBehaviour
 {
-    public GameObject blockPrefab;        // Assign the block prefab in the inspector
-    public GameObject blockOutlinePrefab; // Assign the outline prefab in the inspector
-    private GameObject currentOutline;    // This will hold the current outline instance
-    private Vector3 mousePosition;        // To store the recalculated mouse position in world space
-    private float rotationAngle = 0f;     // Current rotation angle of the block
+    public GameObject blockPrefab;                // Assign the block prefab in the inspector
+    public GameObject blockOutlinePrefab;         // Assign the outline prefab in the inspector
+    public float despawnTime = 5.0f;              // Time in seconds after which the block will despawn
+
+    private GameObject currentOutline;            // This will hold the current outline instance
+    private Vector3 mousePosition;                // To store the recalculated mouse position in world space
+    private float rotationAngle = 0f;             // Current rotation angle of the block
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))  // Left mouse button clicked
+        if (Input.GetMouseButtonDown(0))          // Left mouse button clicked
         {
             HandleSummonPress();
         }
 
-        if (Input.GetMouseButtonDown(1))  // Right mouse button clicked
+        if (Input.GetMouseButtonDown(1))          // Right mouse button clicked
         {
             CancelPlacement();
         }
@@ -57,9 +59,16 @@ public class BlockSummon : MonoBehaviour
 
     private void ConfirmPlacement()
     {
-        Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
+        GameObject blockInstance = Instantiate(blockPrefab, currentOutline.transform.position, currentOutline.transform.rotation);
         Destroy(currentOutline); // Remove the outline after placement
         currentOutline = null;
+        StartCoroutine(DespawnAfterTime(blockInstance, despawnTime)); // Start the despawn coroutine
+    }
+
+    private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(spawnedObject); // Destroy the object after the delay
     }
 
     private void UpdateOutlinePositionAndRotation()
