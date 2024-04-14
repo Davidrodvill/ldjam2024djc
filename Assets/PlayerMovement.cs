@@ -33,18 +33,20 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {//if touching ground, then true
-        if (collision.contacts[0].normal.y > 0.5)
+    {
+        // Check if the player touched ground
+        if (collision.gameObject.CompareTag("Ground") && collision.contacts[0].normal.y > 0.5)
         {
-            isGrounded = true;  
+            isGrounded = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)
-    {//if not touching ground, then not true
-        if (collision.collider != null)
+    {
+        
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;  
+            isGrounded = false;
         }
     }
 }
