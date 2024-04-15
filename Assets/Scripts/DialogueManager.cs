@@ -64,11 +64,18 @@ public class DialogueManager : MonoBehaviour
         {
             StopAllCoroutines();
             dialogueObject.SetActive(true);
-            StartCoroutine(TypeText("I'm sure you've noticed by now, but you can use your mouse to summon blocks. Use them to make it to the Soul Gate!"));
+            StartCoroutine(TypeText("I'm sure you've noticed by now, but you can use your mouse to summon blocks. Select different ones by pressing Q and E!"));
             StartCoroutine(SpeechTime());
         }
 
-        
+        if (other.tag == "DialogueCollider3")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("You can also hit the Right Mouse Button [RMB] to rotate the selected block!"));
+            StartCoroutine(SpeechTime());
+        }
+
 
     }
 
