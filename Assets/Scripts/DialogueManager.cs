@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
         {
             StopAllCoroutines();
             dialogueObject.SetActive(true);
-            StartCoroutine(TypeText("I'm sure you've noticed by now, but you can use your mouse to summon blocks. Select different ones by pressing Q and E!"));
+            StartCoroutine(TypeText("I'm sure you've noticed by now, but you can use your mouse to summon blocks. Select different ones by pressing the Right Mouse Button [RMB]!"));
             StartCoroutine(SpeechTime());
         }
 
@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         {
             StopAllCoroutines();
             dialogueObject.SetActive(true);
-            StartCoroutine(TypeText("You can also hit the Right Mouse Button [RMB] to rotate the selected block!"));
+            StartCoroutine(TypeText("You can also hit Q and E to rotate the selected block!"));
             StartCoroutine(SpeechTime());
         }
 
