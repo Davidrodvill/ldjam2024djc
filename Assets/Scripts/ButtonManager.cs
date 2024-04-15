@@ -1,10 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        Screen.SetResolution(1920, 1980, true);
+        
+
+    }
     public void Level1()
     {
         SceneManager.LoadScene(1);
