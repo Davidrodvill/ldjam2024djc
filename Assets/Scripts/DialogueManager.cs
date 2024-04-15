@@ -23,7 +23,7 @@ public class DialogueManager : MonoBehaviour
         text = GameObject.Find("DialogueText").GetComponent<Text>();
         //spiritSprite.SetActive(false);
         //textBox.SetActive(false);
-        dialogueObject.SetActive(true);
+        dialogueObject.SetActive(false);
 
         
     }
@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour
             //textBox.SetActive(true);
             dialogueObject.SetActive(true);
             //text here
-            StartCoroutine(TypeText("Hello there, uh....cowboy! Press A and D to move around, and space to jump")); 
+            StartCoroutine(TypeText("Hello there, uh....cowboy! Press A and D to move around, and space to jump.")); 
             StartCoroutine(SpeechTime());
 
         }
@@ -74,6 +74,24 @@ public class DialogueManager : MonoBehaviour
             dialogueObject.SetActive(true);
             StartCoroutine(TypeText("You can also hit Q and E to rotate the selected block!"));
             StartCoroutine(SpeechTime());
+        }
+
+        if(other.tag == "DialogueCollider4")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("Uh oh! Looks like we'll have to make our own way up on this one!"));
+            StartCoroutine(SpeechTime());
+
+        }
+
+        if (other.tag == "DialogueCollider5")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("So uh....you come here often? Sorry, just trying to lighten the mood."));
+            StartCoroutine(SpeechTime());
+
         }
 
 

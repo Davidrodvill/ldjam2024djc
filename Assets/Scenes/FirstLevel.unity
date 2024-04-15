@@ -2069,7 +2069,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &545784824
 Animator:
   serializedVersion: 5
@@ -3034,7 +3034,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PUSSY!!!!!
+  m_Text: iahjowaioriw
 --- !u!222 &897374324
 CanvasRenderer:
   m_ObjectHideFlags: 0

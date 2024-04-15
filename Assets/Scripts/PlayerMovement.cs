@@ -183,6 +183,19 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+       if(other.tag == "WinGate2")
+        {
+
+            buttonMngr.Level3();
+        }
+
+       if(other.tag == "FirePillar")
+        {
+            hp = hp - 10;
+            //should add a force that pushes the player back
+
+        }
+
     }
     /*
     void OnCollisionExit2D(Collision2D collision)

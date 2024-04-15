@@ -11,6 +11,10 @@ TagManager:
   - WinGate1
   - DialogueCollider2
   - DialogueCollider3
+  - DialogueCollider4
+  - DialogueCollider5
+  - DialogueCollider6
+  - WinGate2
   layers:
   - Default
   - TransparentFX
