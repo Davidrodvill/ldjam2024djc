@@ -4,24 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DiddyKongDialogue : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
 
 
-    public static Text text;
+    public static TextMesh text;
     string wordsToPrint;
     public static bool beginText = false;
-    public GameObject spiritSprite, textBox;
+    public GameObject dialogueObject;
     
     
 
     // Use this for initialization
     void Start()
     {
-
-        text = GameObject.Find("DialogueText").GetComponent<Text>();
-        spiritSprite.SetActive(false);
-        textBox.SetActive(false);
+        TextMesh text = GameObject.Find("DialogueText").GetComponent<TextMesh>();
+        //text = GameObject.Find("DialogueText").GetComponent<Text>();
+        //spiritSprite.SetActive(false);
+        //textBox.SetActive(false);
+        dialogueObject.SetActive(true);
         
     }
 
@@ -42,14 +43,15 @@ public class DiddyKongDialogue : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.tag == "DialogueCollider1") //beginning
         {
             StopAllCoroutines();
-            spiritSprite.SetActive(true);
-            textBox.SetActive(true);
+            //spiritSprite.SetActive(true);
+            //textBox.SetActive(true);
+            dialogueObject.SetActive(true);
             //text here
             StartCoroutine(TypeText("AAAAAAAAAAHHHHHHHHHH FUCK THIS GAME JAM")); //PLEASE DO NOT LEAVE THIS IN THE GAME
             StartCoroutine(SpeechTime());
@@ -65,8 +67,9 @@ public class DiddyKongDialogue : MonoBehaviour
 
         yield return new WaitForSeconds(10);
         StartCoroutine(TypeText(""));
+        dialogueObject.SetActive(false);
         //diddySprite.SetActive(false); //REPLACE WITH SPIRIT SPRITE
-        textBox.SetActive(false);
+        //textBox.SetActive(false);
     }
 
 }
