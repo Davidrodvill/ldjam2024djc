@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;       
     public float jumpForce = 5f;       
     Rigidbody2D rb;              
-    private bool isGrounded = true;
+    //private bool isGrounded = true;
     public bool canMove = true;
 
     [Header("Death")]
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
+    /*
     void OnCollisionExit2D(Collision2D collision)
     {
         
@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    */
 
 
     //blackout
