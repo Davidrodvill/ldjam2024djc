@@ -1,5 +1,5 @@
 using System.Collections;
-
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,21 +8,23 @@ public class DialogueManager : MonoBehaviour
 {
 
 
-    public static TextMesh text;
+    public static Text text;
     string wordsToPrint;
     public static bool beginText = false;
     public GameObject dialogueObject;
-    
+    //public TMP_Text text;
     
 
     // Use this for initialization
     void Start()
     {
-        TextMesh text = GameObject.Find("DialogueText").GetComponent<TextMesh>();
-        //text = GameObject.Find("DialogueText").GetComponent<Text>();
+        
+        //text = GameObject.Find("DialogueText").GetComponent<TMP_Text>();
+        text = GameObject.Find("DialogueText").GetComponent<Text>();
         //spiritSprite.SetActive(false);
         //textBox.SetActive(false);
         dialogueObject.SetActive(true);
+
         
     }
 
@@ -53,9 +55,17 @@ public class DialogueManager : MonoBehaviour
             //textBox.SetActive(true);
             dialogueObject.SetActive(true);
             //text here
-            StartCoroutine(TypeText("AAAAAAAAAAHHHHHHHHHH FUCK THIS GAME JAM")); //PLEASE DO NOT LEAVE THIS IN THE GAME
+            StartCoroutine(TypeText("Hello there, uh....cowboy! Press A and D to move around, and space to jump")); 
             StartCoroutine(SpeechTime());
 
+        }
+
+        if(other.tag == "DialogueCollider2")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("I'm sure you've noticed by now, but you can use your mouse to summon blocks. Use them to make it to the Soul Gate!"));
+            StartCoroutine(SpeechTime());
         }
 
         
