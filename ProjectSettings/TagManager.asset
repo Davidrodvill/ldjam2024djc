@@ -8,6 +8,7 @@ TagManager:
   - DialogueCollider1
   - Ground
   - Death
+  - WinGate1
   layers:
   - Default
   - TransparentFX

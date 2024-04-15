@@ -27,23 +27,44 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     public bool facingRight;
 
+    [Header("For Jumping")]
+    public GameObject j1, j2; //jump checks
+    public bool canJump = true;
 
 
-    private void Start()
+    public ButtonManager buttonMngr;
+
+
+    void Start()
     {
         Cursor.visible = false; //MAKE SURE TO SET THIS TO ACTIVE WHEN INTERACTING WITH MENUS
         retryButton.SetActive(false);
         menuButton.SetActive(false);
         canMove = true;
+        canJump = true;
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         
-
         //update health bar
         healthBar.value = hp;
+        
+        /*
+        //check if we're on a platform
+        if (Physics2D.OverlapArea(j1.transform.position, j2.transform.position))
+        {
+            canJump = Physics2D.OverlapArea(j1.transform.position, j2.transform.position).gameObject.tag == "Ground";
+
+
+        }
+        else
+        {
+            //canJump = false;
+
+        }
+        */
     }
 
     private void FixedUpdate()
@@ -111,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
@@ -119,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false; 
         }
     }
-
+    
     void OnCollisionEnter2D(Collision2D collision)
     {
         // && collision.contacts[0].normal.y > 0.5
@@ -148,6 +170,12 @@ public class PlayerMovement : MonoBehaviour
             //death sound plays
 
             
+        }
+
+       if(other.tag == "WinGate1")
+        {
+            buttonMngr.Level2();
+
         }
 
     }

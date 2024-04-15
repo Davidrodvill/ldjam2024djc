@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,7 +115,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 762
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fee3cd817fc5e946af071637598caef
+      internalID: -2071221037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 762
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec470493837c724e9481250e7fdde06
+      internalID: 1731253054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_2
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 762
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee412804f163394ba99344514d76474
+      internalID: -428103153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_3
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 762
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a694f42b9f7780c48a7952bf33b05f7b
+      internalID: 2013730616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_4
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 762
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194f5091743674346a26f80a09297d26
+      internalID: 801067124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 381
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81aa61fb1aa18b44598b0b5cc40b2d04
+      internalID: 886929628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_6
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 381
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7190bd177ac4194088f244f5ca3c945
+      internalID: -1468658762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_7
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 381
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2b0f4ebe029074f88388a0833c3e1a
+      internalID: -114078347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 381
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02632716621861c44b9ef949729c4e0f
+      internalID: 1843269653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_9
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 381
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36c8614c86ca5e4e89adca277436f51
+      internalID: -1002624156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9950c00baa1f047a181fe3cdbd9f48
+      internalID: 1952137675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueFirePillar (173 X 381)_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 0
+        width: 173
+        height: 381
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc73935b31572cd449d2b456326efd99
+      internalID: 1917509463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +378,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueFirePillar (173 X 381)_0: -2071221037
+      BlueFirePillar (173 X 381)_1: 1731253054
+      BlueFirePillar (173 X 381)_10: 1952137675
+      BlueFirePillar (173 X 381)_11: 1917509463
+      BlueFirePillar (173 X 381)_2: -428103153
+      BlueFirePillar (173 X 381)_3: 2013730616
+      BlueFirePillar (173 X 381)_4: 801067124
+      BlueFirePillar (173 X 381)_5: 886929628
+      BlueFirePillar (173 X 381)_6: -1468658762
+      BlueFirePillar (173 X 381)_7: -114078347
+      BlueFirePillar (173 X 381)_8: 1843269653
+      BlueFirePillar (173 X 381)_9: -1002624156
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
