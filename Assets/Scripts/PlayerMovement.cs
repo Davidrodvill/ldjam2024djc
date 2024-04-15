@@ -190,6 +190,13 @@ public class PlayerMovement : MonoBehaviour
             buttonMngr.Level3();
         }
 
+       if(other.tag == "WinGate3")
+        {
+            Cursor.visible = true;
+            buttonMngr.EndScene();
+
+        }
+
        if(other.tag == "FirePillar")
         {
             hp = hp - 25;

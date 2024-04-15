@@ -19,6 +19,7 @@ TagManager:
   - Fire
   - DialogueCollider7
   - DialogueCollider8
+  - WinGate3
   layers:
   - Default
   - TransparentFX

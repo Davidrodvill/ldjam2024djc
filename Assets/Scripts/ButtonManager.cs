@@ -23,10 +23,21 @@ public class ButtonManager : MonoBehaviour
 
     }
 
+    public void EndScene()
+    {
+        SceneManager.LoadScene(4);
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
         
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+
     }
 
 
