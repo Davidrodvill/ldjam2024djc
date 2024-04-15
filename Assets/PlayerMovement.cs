@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animation")]
     public Animator anim;
-    public bool facingRight = true;
+    public bool facingRight;
 
 
 
@@ -35,16 +36,20 @@ public class PlayerMovement : MonoBehaviour
         menuButton.SetActive(false);
         canMove = true;
         anim = GetComponent<Animator>();
-        facingRight = true;
     }
 
     void Update()
     {
-        MovePlayer();
-        Jump();
+        
 
         //update health bar
         healthBar.value = hp;
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+        Jump();
     }
 
     void MovePlayer()
@@ -52,43 +57,52 @@ public class PlayerMovement : MonoBehaviour
         if(canMove)
         {
 
-
-            
-
             if (Input.GetAxisRaw("Horizontal") > 0 ) //right
             {
-                
+                Debug.Log("YOU ARE PRESSING D");
+                facingRight = true;
                 //rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y); // Set the horizontal velocity
                 transform.position += new Vector3(moveSpeed * Time.deltaTime, 0);
 
-                if (facingRight) //if we are facing right, we flip the player's sprite
-                {
-                    
-                    facingRight = false;
-                    transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
-                anim.SetBool("isWalking", true);
-
-            }
-
-            if (Input.GetAxisRaw("Horizontal") < 0) //left
-            {
-                transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0);
-
                 
-                if (!facingRight) //if we facing right, we flip the player's sprite
+                anim.SetBool("isWalking", true);
+                //if we were facing left, flip
+                if (!facingRight)
                 {
-                    
                     facingRight = true;
                     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    Debug.Log("YOU SHOULD BE FACING LEFT NOW");
+                    //gameObject.transform.Rotate(0, 0, 0);
 
                 }
-                anim.SetBool("isWalking", true);
+                
             }
+            
             else
             {
                 anim.SetBool("isWalking", false);
             }
+            
+            if (Input.GetAxisRaw("Horizontal") < 0) //left
+            {
+                facingRight = false;
+                transform.position -= new Vector3(moveSpeed * Time.deltaTime, 0);
+
+                //if we were facing right, flip
+                if (facingRight)
+                {
+                    facingRight = false;
+                    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    Debug.Log("YOU SHOULD BE FACING RIGHT NOW");
+                    //gameObject.transform.Rotate(0, 180, 0);
+                }
+
+
+
+                anim.SetBool("isWalking", true);
+            }
+
+            
 
         }
         
