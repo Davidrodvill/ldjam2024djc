@@ -94,6 +94,32 @@ public class DialogueManager : MonoBehaviour
 
         }
 
+        if (other.tag == "DialogueCollider6")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("Look out for the lava! Trust me, it hurts!"));
+            StartCoroutine(SpeechTime());
+
+        }
+
+        if (other.tag == "DialogueCollider7")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("Oh no! Nothing good that way. Lets try going straight up instead!"));
+            StartCoroutine(SpeechTime());
+
+        }
+
+        if(other.tag == "DialogueCollider8")
+        {
+            StopAllCoroutines();
+            dialogueObject.SetActive(true);
+            StartCoroutine(TypeText("Aha! Now...which way do we go?"));
+            StartCoroutine(SpeechTime());
+
+        }
 
     }
 

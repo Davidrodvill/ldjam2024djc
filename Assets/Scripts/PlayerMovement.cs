@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject j1, j2; //jump checks
     public bool canJump = true;
 
+    
+
 
     public ButtonManager buttonMngr;
 
@@ -52,8 +54,13 @@ public class PlayerMovement : MonoBehaviour
         
         //update health bar
         healthBar.value = hp;
-        
-        
+        if (hp < 0)
+        {
+            Die();
+
+
+        }
+
         //check if we're on a platform
         if (Physics2D.OverlapArea(j1.transform.position, j2.transform.position))
         {
@@ -168,17 +175,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(other.tag == "Death")
         {
-            Cursor.visible = true;
-            //death splash screen set true
-            //deathScreen.SetActive(true);
-            StartCoroutine(FadeBlackOutSquare());
-
-            //retry and exit buttons set to true
-            retryButton.SetActive(true);
-            menuButton.SetActive(true);
-            //death sound plays
-
-            
+            Die();
         }
 
        if(other.tag == "WinGate1")
@@ -195,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
 
        if(other.tag == "FirePillar")
         {
-            hp = hp - 20;
+            hp = hp - 25;
             //should add a force that pushes the player back
             rb.AddForce(new Vector3(-pushbackForce, 0));
             StartCoroutine(ForceResetKinda());
@@ -212,8 +209,25 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator ForceResetKinda()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         rb.AddForce(new Vector3(pushbackForce, 0));
+    }
+
+
+
+    void Die()
+    {
+
+            Cursor.visible = true;
+            //death splash screen set true
+            //deathScreen.SetActive(true);
+            StartCoroutine(FadeBlackOutSquare());
+
+            //retry and exit buttons set to true
+            retryButton.SetActive(true);
+            menuButton.SetActive(true);
+            //death sound plays
+
     }
     
     /*
