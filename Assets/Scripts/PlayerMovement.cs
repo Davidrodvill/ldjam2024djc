@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float moveSpeed = 5f;       
     public float jumpForce = 5f;       
-    public Rigidbody2D rb;              
+    Rigidbody2D rb;              
     private bool isGrounded = true;
     public bool canMove = true;
 
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Cursor.visible = false; //MAKE SURE TO SET THIS TO ACTIVE WHEN INTERACTING WITH MENUS
         retryButton.SetActive(false);
         menuButton.SetActive(false);
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         //update health bar
         healthBar.value = hp;
         
-        /*
+        
         //check if we're on a platform
         if (Physics2D.OverlapArea(j1.transform.position, j2.transform.position))
         {
@@ -61,16 +62,20 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //canJump = false;
+            canJump = false;
 
         }
-        */
+        //jumping
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        {
+            rb.AddForce(new Vector3(0, jumpForce));
+        }
     }
 
     private void FixedUpdate()
     {
         MovePlayer();
-        Jump();
+        
     }
 
     void MovePlayer()
@@ -132,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    
+    /*
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
@@ -153,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
-
+    */
     private void OnTriggerEnter2D(Collider2D other)
     {
         
