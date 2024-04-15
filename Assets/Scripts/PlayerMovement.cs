@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed = 5f;       
-    public float jumpForce = 5f;       
+    public float jumpForce = 5f;
+    public float pushbackForce = 1000f;
     Rigidbody2D rb;              
     //private bool isGrounded = true;
     public bool canMove = true;
@@ -196,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hp = hp - 20;
             //should add a force that pushes the player back
-            rb.AddForce(-transform.forward * 10000f);
+            rb.AddForce(new Vector3(-pushbackForce, 0));
 
         }
 
@@ -204,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hp = hp - 10;
             //should add a force that pushes the player back
-            rb.AddForce(-transform.forward * 10000f);
+            rb.AddForce(new Vector3(-pushbackForce, 0));
 
         }
 
