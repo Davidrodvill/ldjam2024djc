@@ -159,6 +159,9 @@ public class PlayerMovement : MonoBehaviour
         
     }
     */
+
+    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         
@@ -191,12 +194,23 @@ public class PlayerMovement : MonoBehaviour
 
        if(other.tag == "FirePillar")
         {
+            hp = hp - 20;
+            //should add a force that pushes the player back
+            rb.AddForce(-transform.forward * 10000f);
+
+        }
+
+        if (other.tag == "Fire")
+        {
             hp = hp - 10;
             //should add a force that pushes the player back
+            rb.AddForce(-transform.forward * 10000f);
 
         }
 
     }
+
+    
     /*
     void OnCollisionExit2D(Collision2D collision)
     {
