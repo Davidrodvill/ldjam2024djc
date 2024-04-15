@@ -7,11 +7,14 @@ public class BlockSummon : MonoBehaviour
     public List<GameObject> blockPrefabs;          // List to hold multiple block prefabs
     public List<GameObject> blockOutlinePrefabs;   // List to hold corresponding outline prefabs
     public float despawnTime = 5.0f;
+    public float summonCooldown = 1.0f;  // Cooldown duration in seconds
 
     private GameObject currentOutline;
     private Vector3 mousePosition;
     private float rotationAngle = 0f;
     private int currentPrefabIndex = 0;  // Index to keep track of the currently selected block prefab
+    private float lastSummonTime = -Mathf.Infinity;  // Initialize to a time in the past
+
 
     void Start()
     {
@@ -46,14 +49,19 @@ public class BlockSummon : MonoBehaviour
 
     private void HandleSummonPress()
     {
-        ConfirmPlacement();
+        // Check if enough time has passed since the last summon
+        if (Time.time - lastSummonTime >= summonCooldown)
+        {
+            ConfirmPlacement();
+            lastSummonTime = Time.time;  // Update the last summon time
+        }
     }
 
     private void CreateOutline()
     {
-        if (currentOutline != null) return;  // Return if there's already an outline
+        if (currentOutline != null) return;  
 
-        // Make sure we have the corresponding outline for the current block prefab
+        // same outline for the block
         if (blockOutlinePrefabs.Count > currentPrefabIndex)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
@@ -71,7 +79,7 @@ public class BlockSummon : MonoBehaviour
     {
         if (blockPrefabs.Count > currentPrefabIndex)
         {
-            // Instantiate the block at the outline position and rotation
+            // Instantiate the block
             GameObject blockInstance = Instantiate(blockPrefabs[currentPrefabIndex], currentOutline.transform.position, currentOutline.transform.rotation);
             // Start the despawn coroutine for the placed block
             StartCoroutine(DespawnAfterTime(blockInstance, despawnTime));
@@ -84,17 +92,17 @@ public class BlockSummon : MonoBehaviour
 
     private IEnumerator DespawnAfterTime(GameObject spawnedObject, float delay)
     {
-        // Wait for the specified delay
+        //delay
         yield return new WaitForSeconds(delay);
 
-        // Ensure the object still exists
+        //if object still exists
         if (spawnedObject != null)
         {
-            // Get the renderer component of the object
+            // renderer
             Renderer renderer = spawnedObject.GetComponent<Renderer>();
             if (renderer != null)
             {
-                // Get the current color of the material
+                
                 Color initialColor = renderer.material.color;
                 float fadeDuration = 2.0f; // Duration of the fade effect in seconds
                 float fadeSpeed = 5.0f / fadeDuration;
