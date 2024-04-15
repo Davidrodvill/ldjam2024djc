@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
             hp = hp - 20;
             //should add a force that pushes the player back
             rb.AddForce(new Vector3(-pushbackForce, 0));
-
+            StartCoroutine(ForceReset());
         }
 
         if (other.tag == "Fire")
@@ -206,11 +206,15 @@ public class PlayerMovement : MonoBehaviour
             hp = hp - 10;
             //should add a force that pushes the player back
             rb.AddForce(new Vector3(-pushbackForce, 0));
-
+            StartCoroutine(ForceReset());
         }
 
     }
-
+    IEnumerator ForceReset()
+    {
+        yield return new WaitForSeconds(1);
+        rb.AddForce(new Vector3(pushbackForce, 0));
+    }
     
     /*
     void OnCollisionExit2D(Collision2D collision)

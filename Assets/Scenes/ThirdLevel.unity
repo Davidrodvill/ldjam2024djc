@@ -7082,6 +7082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 350
+  pushbackForce: 300
   canMove: 0
   deathScreen: {fileID: 1964419044}
   retryButton: {fileID: 716063}
